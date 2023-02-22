@@ -1,8 +1,8 @@
 # UAParser.php
 
-´Ë´úÂë¸Ä±à×ÔUAParser.js v1.1.34£¬¸ĞĞ»Ô­×÷Õß¼°ÆäËû114Î»¹±Ï×Õß
+æ­¤ä»£ç æ”¹ç¼–è‡ªUAParser.js v1.1.34ï¼Œæ„Ÿè°¢åŸä½œè€…åŠå…¶ä»–114ä½è´¡çŒ®è€…
 
-ÓÃÓÚ´ÓÓÃ»§´úÀíÊı¾İÖĞ¼ì²âä¯ÀÀÆ÷¡¢ÒıÇæ¡¢²Ù×÷ÏµÍ³¡¢CPU ºÍÉè±¸ÀàĞÍ/ĞÍºÅ¡£
+ç”¨äºä»ç”¨æˆ·ä»£ç†æ•°æ®ä¸­æ£€æµ‹æµè§ˆå™¨ã€å¼•æ“ã€æ“ä½œç³»ç»Ÿã€CPU å’Œè®¾å¤‡ç±»å‹/å‹å·ã€‚
 
 * Author    : frogot fish <<fish@doffish.com>>
 * Demo      : https://www.doffish.com/ua/index.php
@@ -13,12 +13,12 @@
 # Documentation
 ### UAParser([user-agent:string][,extensions:array])
 
-Äú²»ĞèÒª½«UserAgent×Ö·û´®´«µİ¸øº¯Êı£¬ÄúÖ»Ğèµ÷ÓÃº¯Êı£¬Ëü¾Í»á×Ô¶¯´Ó$_SERVER['HTTP_USER_AGENT']ÖĞ»ñÈ¡UserAgent×Ö·û´®¡£
+æ‚¨ä¸éœ€è¦å°†UserAgentå­—ç¬¦ä¸²ä¼ é€’ç»™å‡½æ•°ï¼Œæ‚¨åªéœ€è°ƒç”¨å‡½æ•°ï¼Œå®ƒå°±ä¼šè‡ªåŠ¨ä»$_SERVER['HTTP_USER_AGENT']ä¸­è·å–UserAgentå­—ç¬¦ä¸²ã€‚
 
 
 ## Constructor
-µ±ÄúÊ¹ÓÃ¹Ø¼ü×Ö¡°new¡±µ÷ÓÃ¡°UAParser¡±Ê±£¬¡°UAParser¡±½«·µ»ØÒ»¸ö²»°üº¬½á¹û¶ÔÏóµÄĞÂÊµÀı£¬Ëû½ö°üº¬ÁËÕıÔò±í´ïÊ½µÄÆ¥Åä¹æÔò£¬Äú±ØĞëµ÷ÓÃÒ»¸ö¿ÉÓÃµÄ·½·¨À´´ÓÓÃ»§´úÀí×Ö·û´®ÖĞ»ñÈ¡ĞÅÏ¢¡£
-* `new UAParser([user-agent:string][,extensions:object])`
+å½“æ‚¨ä½¿ç”¨å…³é”®å­—â€œnewâ€è°ƒç”¨â€œUAParserâ€æ—¶ï¼Œâ€œUAParserâ€å°†è¿”å›ä¸€ä¸ªä¸åŒ…å«ç»“æœå¯¹è±¡çš„æ–°å®ä¾‹ï¼Œä»–ä»…åŒ…å«äº†æ­£åˆ™è¡¨è¾¾å¼çš„åŒ¹é…è§„åˆ™ï¼Œæ‚¨å¿…é¡»è°ƒç”¨ä¸€ä¸ªå¯ç”¨çš„æ–¹æ³•æ¥ä»ç”¨æˆ·ä»£ç†å­—ç¬¦ä¸²ä¸­è·å–ä¿¡æ¯ã€‚
+* `new UAParser([user-agent:string][,extensions:array])`
 ```php
 $uap = new frogotfish\UAParser\UAParser();
 var_dump($uap);
@@ -46,17 +46,17 @@ object(frogotfish\UAParser\UAParser)#1 (3) {
 ## Methods
 
 #### Methods table
-ÏÂÃæÊÇËùÓĞ¿ÉÓÃ·½·¨µÄĞ¡¸ÅÊö£º
-*  `getResult()` - ·µ»ØËùÓĞº¯Êı¶ÔÏóµ÷ÓÃ¡¢ÓÃ»§´úÀí×Ö·û´®¡¢ä¯ÀÀÆ÷ĞÅÏ¢¡¢cpu¡¢Éè±¸¡¢ÒıÇæ¡¢²Ù×÷ÏµÍ³£º
+ä¸‹é¢æ˜¯æ‰€æœ‰å¯ç”¨æ–¹æ³•çš„å°æ¦‚è¿°ï¼š
+*  `getResult()` - è¿”å›æ‰€æœ‰å‡½æ•°å¯¹è±¡è°ƒç”¨ã€ç”¨æˆ·ä»£ç†å­—ç¬¦ä¸²ã€æµè§ˆå™¨ä¿¡æ¯ã€cpuã€è®¾å¤‡ã€å¼•æ“ã€æ“ä½œç³»ç»Ÿï¼š
 `{ ua: '', browser: {}, cpu: {}, device: {}, engine: {}, os: {} }`.
 
- *  `getBrowser()`      - ·µ»Øä¯ÀÀÆ÷Ãû³ÆºÍ°æ±¾¡£
- *  `getDevice()`       - ·µ»ØÉè±¸ĞÍºÅ¡¢ÀàĞÍºÍ¹©Ó¦ÉÌ¡£
- *  `getEngine()`       - ·µ»Øµ±Ç°ä¯ÀÀÆ÷ÒıÇæÃû³ÆºÍ°æ±¾¡£
- *  `getOS()`           - ·µ»ØÕıÔÚÔËĞĞµÄ²Ù×÷ÏµÍ³Ãû³ÆºÍ°æ±¾¡£
- *  `getCPU()`          - ·µ»ØCPUÌåÏµ½á¹¹Éè¼ÆÃû³Æ¡£
- *  `getUA()`           - ·µ»ØÓÃ»§´úÀí×Ö·û´®¡£
- *  `setUA(user-agent)` - ÉèÖÃÒª½âÎöµÄ×Ô¶¨ÒåÓÃ»§´úÀí¡£
+ *  `getBrowser()`      - è¿”å›æµè§ˆå™¨åç§°å’Œç‰ˆæœ¬ã€‚
+ *  `getDevice()`       - è¿”å›è®¾å¤‡å‹å·ã€ç±»å‹å’Œä¾›åº”å•†ã€‚
+ *  `getEngine()`       - è¿”å›å½“å‰æµè§ˆå™¨å¼•æ“åç§°å’Œç‰ˆæœ¬ã€‚
+ *  `getOS()`           - è¿”å›æ­£åœ¨è¿è¡Œçš„æ“ä½œç³»ç»Ÿåç§°å’Œç‰ˆæœ¬ã€‚
+ *  `getCPU()`          - è¿”å›CPUä½“ç³»ç»“æ„è®¾è®¡åç§°ã€‚
+ *  `getUA()`           - è¿”å›ç”¨æˆ·ä»£ç†å­—ç¬¦ä¸²ã€‚
+ *  `setUA(user-agent)` - è®¾ç½®è¦è§£æçš„è‡ªå®šä¹‰ç”¨æˆ·ä»£ç†ã€‚
 
 ---
 
@@ -157,8 +157,8 @@ Ubuntu, Unix, VectorLinux, Viera, WebOS, Windows [Phone/Mobile], Zenwalk, ...
 #### * is() utility `since@1.1`
 
 ```php
-//Ö»ÊÇ¼ì²éÖ¸¶¨µÄÄ³¸ö²Æ²úÊÇ·ñ¾ßÓĞÏàµÈÖµµÄËÙ¼Ç
-//Òò´Ë£¬²»±ØÏñÕâÑùÊ¹ÓÃ¡°==¡±ÔËËã·ûÀ´±àĞ´Ëü£º
+//åªæ˜¯æ£€æŸ¥æŒ‡å®šçš„æŸä¸ªè´¢äº§æ˜¯å¦å…·æœ‰ç›¸ç­‰å€¼çš„é€Ÿè®°
+//å› æ­¤ï¼Œä¸å¿…åƒè¿™æ ·ä½¿ç”¨â€œ==â€è¿ç®—ç¬¦æ¥ç¼–å†™å®ƒï¼š
 
 $uap = new frogotfish\UAParser\UAParser('Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 635) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Mobile Safari/537');
 
@@ -197,10 +197,10 @@ $engine->is("Blink");                   // true
 #### * toString() utility `since@1.1`
 
 ```php
-// ÒÔ×Ö·û´®ĞÎÊ½¼ìË÷È«ÃûÖµ
+// ä»¥å­—ç¬¦ä¸²å½¢å¼æ£€ç´¢å…¨åå€¼
 
 /*
-    * ÊôĞÔÖµ½«°´ÕÕ´ËÄ£Ê½Á¬½Ó:
+    * å±æ€§å€¼å°†æŒ‰ç…§æ­¤æ¨¡å¼è¿æ¥:
     * browser : name + version
     * cpu : architecture 
     * device : vendor + model
@@ -208,7 +208,7 @@ $engine->is("Blink");                   // true
     * os : name + version
 */
 
-// ÓÃ·¨Ê¾Àı
+// ç”¨æ³•ç¤ºä¾‹
 
 $uap = new frogotfish\UAParser\UAParser('Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 635) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Mobile Safari/537');
 
@@ -233,12 +233,12 @@ $engine->toString();                   // "Blink 28.0.1500.95"
 
 ## Extending Regex
 
-Èç¹ûÄúÏë¼ì²âUAParser.phpµ±Ç°Î´Ìá¹©µÄÄÚÈİ£¨ÀıÈç£ºbot¡¢ÌØ¶¨Ó¦ÓÃ³ÌĞòµÈ£©£¬¿ÉÒÔ´«µİÒ»¸öÕıÔò±í´ïÊ½ÁĞ±í£¬ÓÃ×Ô¼ºµÄÕıÔò±í´ïÊ½À©Õ¹ÄÚ²¿UAParser.phpÕıÔò±í´ïÊ½¡£
+å¦‚æœæ‚¨æƒ³æ£€æµ‹UAParser.phpå½“å‰æœªæä¾›çš„å†…å®¹ï¼ˆä¾‹å¦‚ï¼šbotã€ç‰¹å®šåº”ç”¨ç¨‹åºç­‰ï¼‰ï¼Œå¯ä»¥ä¼ é€’ä¸€ä¸ªæ­£åˆ™è¡¨è¾¾å¼åˆ—è¡¨ï¼Œç”¨è‡ªå·±çš„æ­£åˆ™è¡¨è¾¾å¼æ‰©å±•å†…éƒ¨UAParser.phpæ­£åˆ™è¡¨è¾¾å¼ã€‚
 
 * `UAParser([uastring,] extensions)`
 
 ```php
-// ÓÃ·¨Ê¾ÀıÒ»
+// ç”¨æ³•ç¤ºä¾‹ä¸€
 use frogotfish\UAParser\UAParser;
 $myOwnListOfBrowsers = [
     ['/(mybrowser)\/([\w\.]+)/i'], [NAME, VERSION]
@@ -248,7 +248,7 @@ $myUA = 'Mozilla/5.0 MyBrowser/1.3';
 $myParser->setUA($myUA);
 echo($myParser->getBrowser()->toString());      // "MyBrowser 1.3"
 
-// ÓÃ·¨Ê¾Àı¶ş
+// ç”¨æ³•ç¤ºä¾‹äºŒ
 $myOwnListOfDevices = [
     ['/(mytab) ([\w ]+)/i'], [VENDOR, MODEL, [TYPE, TABLET]],
     ['/(myphone)/i'], [VENDOR, [TYPE, MOBILE]]
@@ -262,7 +262,7 @@ $myParser2->setUA($myUA2);
 echo($myParser2->getDevice()->toString());      // MyTab 14 Pro Max
 ```
 
-# Contributors£¨UAParser.js£©
+# Contributorsï¼ˆUAParser.jsï¼‰
 
 <a href="https://github.com/faisalman/ua-parser-js/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=faisalman/ua-parser-js" />
@@ -270,7 +270,7 @@ echo($myParser2->getDevice()->toString());      // MyTab 14 Pro Max
 
 
 
-# Contributors£¨UAParser.php£©
+# Contributorsï¼ˆUAParser.phpï¼‰
 
 <a href="https://github.com/talefish/ua-parser-php/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=talefish/ua-parser-php" /></a>
