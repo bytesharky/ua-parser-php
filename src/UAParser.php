@@ -119,7 +119,12 @@ class UAParser extends BaseClass{
     public function getResult() {
         return new UAResult($this);
     }
-
+    
+    public function __debugInfo()
+    {
+        $properties['ua']  = $this->uastring;
+        return $properties;
+    }
 }
 
 //子项
@@ -151,6 +156,19 @@ class UAItem  extends BaseClass{
         }
         return $str ? $str : $default;
     }
+
+    public function __debugInfo()
+    {
+        $properties = [];
+        foreach ($this->propToString as $v) {
+            if (isset($this->$v)) {
+                $properties[$v]  = $this->$v;
+            }else{
+                $properties[$v] = EMPTY_;
+            }
+        }
+        return $properties;
+    }    
 }
 
 //结果集合
