@@ -17,27 +17,16 @@
 
 
 ## Constructor
-当您使用关键字“new”调用“UAParser”时，“UAParser”将返回一个不包含结果对象的新实例，他仅包含了正则表达式的匹配规则，您必须调用一个可用的方法来从用户代理字符串中获取信息。
+当您使用关键字“new”调用“UAParser”时，“UAParser”将返回一个不包含结果对象的新实例，您必须调用一个可用的方法来从用户代理字符串中获取信息。
 * `new UAParser([user-agent:string][,extensions:array])`
 ```php
 $uap = new frogotfish\UAParser\UAParser();
 var_dump($uap);
 /**
-object(frogotfish\UAParser\UAParser)#1 (3) {
-  ["version"]=>
-  string(6) "1.1.34"
-  ["uastring"]=>
-  string(129) "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.50"
-  ["regexmap"]=>
-  array(5) {
-    ["browser"]=>
-    array(80) {
-      [0]=>
-      array(1) {
-        [0]=>
-        string(30) "/\b(?:crmo|crios)\/([\w\.]+)/i"
-      }
-.........
+object(frogotfish\UAParser\UAParser)#1 (1) {
+  ["ua"]=>
+  string(129) "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.27"
+}
 */
 ```
 
