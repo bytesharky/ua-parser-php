@@ -45,7 +45,7 @@ class BaseClass implements \arrayaccess{
 class UAParser extends BaseClass{
 
     public function __construct($uastring = false, $extensions = false){
-        global $Regexmap;
+        $Regexmap = Regexmap::$Regexmap;
 
         if(is_array($uastring)){
             $extensions = $uastring;
@@ -117,7 +117,7 @@ class UAItem  extends BaseClass{
         if (!$strCheck) return false;
         $is = false;
         foreach ($this->propIs as $v) {
-            if (sanitize($this->$v, $this->rgxIs) == sanitize($strCheck, $this->rgxIs)) {
+            if (sanitize($this->$v??"", $this->rgxIs) == sanitize($strCheck, $this->rgxIs)) {
                 $is = true;
                 break;
             }
