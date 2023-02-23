@@ -279,7 +279,7 @@ echo($myParser2->getDevice()->toString());      // MyTab 14 Pro Max
 
 MIT License
 
-Copyright (c) 2012-2021 frogot fish <fish@doffish.com>
+Copyright (c) 2023 frogot fish <fish@doffish.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
