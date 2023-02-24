@@ -4,21 +4,24 @@
 
 用于从用户代理数据中检测浏览器、引擎、操作系统、CPU 和设备类型/型号。
 
-* Author    : frogot fish <<fish@doffish.com>>
-* Demo      : https://www.doffish.com/ua/index.php
-* Source    : https://github.com/talefish/ua-parser-php
+*   Author    : frogot fish <<fish@doffish.com>>
+*   Demo      : <https://www.doffish.com/ua/index.php>
+*   Source    : <https://github.com/talefish/ua-parser-php>
 
 ***
 
 # Documentation
-### UAParser([user-agent:string][,extensions:array])
 
-您不需要将UserAgent字符串传递给函数，您只需调用函数，它就会自动从$_SERVER['HTTP_USER_AGENT']中获取UserAgent字符串。
+### UAParser(\[user-agent\:string]\[,extensions\:array])
 
+您不需要将UserAgent字符串传递给函数，您只需调用函数，它就会自动从\$\_SERVER\['HTTP\_USER\_AGENT']中获取UserAgent字符串。
 
 ## Constructor
+
 当您使用关键字“new”调用“UAParser”时，“UAParser”将返回一个不包含结果对象的新实例，您必须调用一个可用的方法来从用户代理字符串中获取信息。
-* `new UAParser([user-agent:string][,extensions:array])`
+
+*   `new UAParser([user-agent:string][,extensions:array])`
+
 ```php
 $uap = new frogotfish\UAParser\UAParser();
 var_dump($uap);
@@ -30,30 +33,36 @@ object(frogotfish\UAParser\UAParser)#1 (1) {
 */
 ```
 
-
-
 ## Methods
 
 #### Methods table
+
 下面是所有可用方法的小概述：
-*  `getResult()` - 返回所有函数对象调用、用户代理字符串、浏览器信息、cpu、设备、引擎、操作系统：
-`{ ua: '', browser: {}, cpu: {}, device: {}, engine: {}, os: {} }`.
 
- *  `getBrowser()`      - 返回浏览器名称和版本。
- *  `getDevice()`       - 返回设备型号、类型和供应商。
- *  `getEngine()`       - 返回当前浏览器引擎名称和版本。
- *  `getOS()`           - 返回正在运行的操作系统名称和版本。
- *  `getCPU()`          - 返回CPU体系结构设计名称。
- *  `getUA()`           - 返回用户代理字符串。
- *  `setUA(user-agent)` - 设置要解析的自定义用户代理。
+*   `getResult()` - 返回所有函数对象调用、用户代理字符串、浏览器信息、cpu、设备、引擎、操作系统：
+    `{ ua: '', browser: {}, cpu: {}, device: {}, engine: {}, os: {} }`.
 
----
+*   `getBrowser()`      - 返回浏览器名称和版本。
 
-* `getResult() : UAResult`
-    * returns `{ ua: '', browser: UABrowser {}, cpu: UACPU {}, device: UADevice {}, engine: UAEngine {}, os: UAOS {} }`
+*   `getDevice()`       - 返回设备型号、类型和供应商。
 
-* `getBrowser() : UABrowser`
-    * returns `{ name: '', version: '' }`
+*   `getEngine()`       - 返回当前浏览器引擎名称和版本。
+
+*   `getOS()`           - 返回正在运行的操作系统名称和版本。
+
+*   `getCPU()`          - 返回CPU体系结构设计名称。
+
+*   `getUA()`           - 返回用户代理字符串。
+
+*   `setUA(user-agent)` - 设置要解析的自定义用户代理。
+
+***
+
+*   `getResult() : UAResult`
+    *   returns `{ ua: '', browser: UABrowser {}, cpu: UACPU {}, device: UADevice {}, engine: UAEngine {}, os: UAOS {} }`
+
+*   `getBrowser() : UABrowser`
+    *   returns `{ name: '', version: '' }`
 
 ```sh
 # Possible 'browser.name':
@@ -76,8 +85,8 @@ Vivaldi, Waterfox, WeChat, Weibo, Yandex, baidu, iCab, w3m, Whale Browser...
 # 'browser.version' determined dynamically
 ```
 
-* `getDevice() : UADevice`
-    * returns `{ model: '', type: '', vendor: '' }`
+*   `getDevice() : UADevice`
+    *   returns `{ model: '', type: '', vendor: '' }`
 
 ```sh
 # Possible 'device.type':
@@ -100,8 +109,8 @@ Siemens, Sony[Ericsson], Sprint, Tesla, Vivo, Vodafone, Xbox, Xiaomi, Zebra, ZTE
 # 'device.model' determined dynamically
 ```
 
-* `getEngine() : UAEngine`
-    * returns `{ name: '', version: '' }`
+*   `getEngine() : UAEngine`
+    *   returns `{ name: '', version: '' }`
 
 ```sh
 # Possible 'engine.name'
@@ -111,8 +120,8 @@ NetSurf, Presto, Tasman, Trident, w3m, WebKit
 # 'engine.version' determined dynamically
 ```
 
-* `getOS() : UAOS`
-    * returns `{ name: '', version: '' }`
+*   `getOS() : UAOS`
+    *   returns `{ name: '', version: '' }`
 
 ```sh
 # Possible 'os.name'
@@ -128,22 +137,22 @@ Ubuntu, Unix, VectorLinux, Viera, WebOS, Windows [Phone/Mobile], Zenwalk, ...
 # 'os.version' determined dynamically
 ```
 
-* `getCPU() : UACPU`
-    * returns `{ architecture: '' }`
+*   `getCPU() : UACPU`
+    *   returns `{ architecture: '' }`
 
 ```sh
 # Possible 'cpu.architecture'
 68k, amd64, arm[64/hf], avr, ia[32/64], irix[64], mips[64], pa-risc, ppc, sparc[64]
 ```
 
-* `getUA() : string`
-    * returns UA string of current instance
+*   `getUA() : string`
+    *   returns UA string of current instance
 
-* `setUA(uastring)`
-    * set UA string to be parsed
-    * returns current instance
+*   `setUA(uastring)`
+    *   set UA string to be parsed
+    *   returns current instance
 
-#### * is() utility `since@1.1`
+#### \* is() utility `since@1.1`
 
 ```php
 //只是检查指定的某个财产是否具有相等值的速记
@@ -183,7 +192,7 @@ $engine = $uap->getEngine();
 $engine->is("Blink");                   // true
 ```
 
-#### * toString() utility `since@1.1`
+#### \* toString() utility `since@1.1`
 
 ```php
 // 以字符串形式检索全名值
@@ -204,9 +213,9 @@ $uap = new frogotfish\UAParser\UAParser('Mozilla/5.0 (Mobile; Windows Phone 8.1;
 
 $uap->getDevice()->toString();         // "Nokia Lumia 635"
 
-$uap->getResult()->os.name;            // "Windows Phone"
-$uap->getResult()->os.version;         // "8.1"
-$uap->getResult()->os.toString();      // "Windows Phone 8.1"
+$uap->getResult()->os->name;           // "Windows Phone"
+$uap->getResult()->os->version;        // "8.1"
+$uap->getResult()->os->toString();     // "Windows Phone 8.1"
 
 $uap->setUA("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36");
 $uap->getBrowser()->name;              // "Chrome"
@@ -214,7 +223,7 @@ $uap->getBrowser()->version;           // "28.0.1500.95"
 $uap->getBrowser()->major;             // "28"
 $uap->getBrowser()->toString();        // "Chrome 28.0.1500.95"
 
-$engine = $uap.getEngine();
+$engine = $uap->getEngine();
 $engine->name;                         // "Blink"
 $engine->version;                      // "28.0.1500.95"
 $engine->toString();                   // "Blink 28.0.1500.95"
@@ -224,7 +233,7 @@ $engine->toString();                   // "Blink 28.0.1500.95"
 
 如果您想检测UAParser.php当前未提供的内容（例如：bot、特定应用程序等），可以传递一个正则表达式列表，用自己的正则表达式扩展内部UAParser.php正则表达式。
 
-* `UAParser([uastring,] extensions)`
+*   `UAParser([uastring,] extensions)`
 
 ```php
 // 用法示例一
@@ -238,6 +247,7 @@ $myParser->setUA($myUA);
 echo($myParser->getBrowser()->toString());      // "MyBrowser 1.3"
 
 // 用法示例二
+use frogotfish\UAParser\UAParser;
 $myOwnListOfDevices = [
     ['/(mytab) ([\w ]+)/i'], [VENDOR, MODEL, [TYPE, TABLET]],
     ['/(myphone)/i'], [VENDOR, [TYPE, MOBILE]]
@@ -256,8 +266,6 @@ echo($myParser2->getDevice()->toString());      // MyTab 14 Pro Max
 <a href="https://github.com/faisalman/ua-parser-js/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=faisalman/ua-parser-js" />
 </a>
-
-
 
 # Contributors（UAParser.php）
 
