@@ -5,7 +5,7 @@
 用于从用户代理数据中检测浏览器、引擎、操作系统、CPU 和设备类型/型号。
 
 *   Author    : frogot fish <<fish@doffish.com>>
-*   Demo      : <https://www.doffish.com/ua/index.php>
+*   Demo      : <https://www.doffish.com/UAParser.do>
 *   Source    : <https://github.com/talefish/ua-parser-php>
 
 ***
