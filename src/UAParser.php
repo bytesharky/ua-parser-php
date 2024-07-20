@@ -18,33 +18,35 @@ require_once('Helper.php');
 
 
 //基类
+#[\AllowDynamicProperties]
 class BaseClass implements \arrayaccess{
     //以下是实现接口，数组式访问属性
-    public function offsetExists($offset)
+    public function offsetExists(mixed $offset): bool
     {
         return isset($this->$offset);
     }
 
-    public function offsetGet($offset)
+    public function offsetGet(mixed $offset): mixed
     {
         return isset($this->$offset) ? $this->$offset : null;
     }
 
-    public function offsetSet($offset , $value)
+    public function offsetSet(mixed $offset , mixed $value): void
     {
         $this->$offset = $value;
     }
 
-    public function offsetUnset($offset)
+    public function offsetUnset(mixed $offset): void
     {
         unset($this->$offset);
     }
 }
 
 //解析器
+#[\AllowDynamicProperties]
 class UAParser extends BaseClass{
 
-    public function __construct($uastring = false, $extensions = false){
+    public function __construct(mixed $uastring = false, mixed $extensions = false){
         $Regexmap = Regexmap::$Regexmap;
 
         if(is_array($uastring)){
@@ -57,11 +59,11 @@ class UAParser extends BaseClass{
 
     }
 
-    public function getUA($default = false){
+    public function getUA(mixed $default = false){
         return ($default)? $_SERVER['HTTP_USER_AGENT'] : $this->uastring;
     }
 
-    public function setUA($uastring){
+    public function setUA(mixed $uastring){
         return $this->uastring = $uastring;
     }
 
@@ -116,6 +118,13 @@ class UAParser extends BaseClass{
         return $os;
     }
 
+    public function getNet() {
+        $netregex = [['/nettype\/([[0-9a-z]+)/i'],["nettype"]];
+        $net = new UAItem(["nettype"], [["nettype"]]);
+        rgxMapper($net, $this->uastring, $netregex);
+        return $net;
+    }
+
     public function getResult() {
         return new UAResult($this);
     }
@@ -128,14 +137,15 @@ class UAParser extends BaseClass{
 }
 
 //子项
+#[\AllowDynamicProperties]
 class UAItem  extends BaseClass{
-    public function __construct($propToString = [], $propIs = []){
+    public function __construct(mixed $propToString = [], mixed $propIs = []){
         $this->propToString = $propToString;
         $this->propIs = $propIs[0]??false;
         $this->rgxIs  = $propIs[1]??false;
     }
 
-    public function is($strCheck){
+    public function is(mixed $strCheck){
         if (!$strCheck) return false;
         $is = false;
         foreach ($this->propIs as $v) {
@@ -147,7 +157,7 @@ class UAItem  extends BaseClass{
         return $is;
     }
 
-    public function toString($default = false) {
+    public function toString(mixed $default = false) {
         $str = '';
         foreach ($this->propToString as $v) {
             if (isset($this->$v)) {
@@ -172,9 +182,10 @@ class UAItem  extends BaseClass{
 }
 
 //结果集合
+#[\AllowDynamicProperties]
 class UAResult{
 
-    public function __construct($uap){
+    public function __construct(mixed $uap){
 
         $this->ua = $uap->getUA();
         $this->browser = $uap->getBrowser();
@@ -182,6 +193,7 @@ class UAResult{
         $this->device = $uap->getDevice();
         $this->engine = $uap->getEngine();
         $this->os = $uap->getOS();
+        $this->net = $uap->getNet();
 
     }
 }
